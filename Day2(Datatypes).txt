@@ -1,0 +1,157 @@
+#Data Types
+#string
+#subscripting
+print("Hello"[0])
+print("Hello"[4])
+#concadinate
+print("123" + "345")
+print("Hello"+"World")
+#Integer
+
+print(123+345)
+#commas cannot be used to separate the number,instead of commas _(underscore) is used
+#example:
+print(123_345_678)
+#Float
+3.14567
+# Boolean
+True
+False
+--------------------------------------------------------------------
+#len(4567)
+num=len(input("What is your name?"))
+#type convertion or type casting
+new_num=str(num)
+print("Your name contains " + new_num + " characters")
+              #String + #integer=type error concatenate
+#type check function:to identify  the type of input
+print(type(new_num))
+#type conversion
+a=123
+print(type(a))
+#int to string
+b=str(123)
+print(type(b))
+#int into float
+c=float(123)
+print(type(c))
+print(70+float("100.5"))
+print(str(70)+str(100))
+-------------------------------------------------------------------------------
+# 🚨 Don't change the code below 👇
+two_digit_number = input("Type a two digit number: ")
+# 🚨 Don't change the code above 👆
+
+####################################
+#Write your code below this line 👇
+a1=int(two_digit_number[0])
+a2=int(two_digit_number[1])
+print(type(a1))
+print(type(a2))
+result=a1+a2
+print(type(result))
+print(result)
+----------------------------------------------------------------
+#addition
+2+3
+#subtraction
+5-3
+#multiplication
+5*2
+#division
+6/3
+#power or exponent
+2**3
+#PEMDASLR
+#(Parenthesis|()|
+#Exponent|**|
+#Multiplication|*|
+#Division|/|
+#Addition|+|
+#Subtraction|-|)
+print(3*3+3/3-3)
+ANS=7.0
+print(3*(3+3)/3-3)
+ANS=3.0
+-------------------------------------------------------------
+# 🚨 Don't change the code below 👇
+height = input("enter your height in m: ")
+weight =input("enter your weight in kg: ")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+
+
+#unsupported error **
+bmi=int(weight)/float(height)**2
+print(int(bmi))
+ANS={enter your height in m: 1.75
+enter your weight in kg: 80
+26}
+------------------------------------------------------------
+Rounding the value:
+print(8/3)
+ans:2.66666666666666666665
+print(round(8/3))
+ans:3
+Round into two decimal places:
+print(round(8/3,2))
+ans:2.67
+Floor division:
+print(8//3)
+ans:2
+
+result=4/2
+result/=2
+print(result)
+ans:1.0
+
++=,-=,*=,/=
+score=0
+score+=1
+print(score)
+ans:1
+
+f-String
+score=0
+height=178
+isWinning=True
+print(f"Your score is {score}, Your height is {height}, Your Winning is {isWinning}")
+ans:Your score is 0, Your height is 178, Your Winning is True
+
+Life in Weeks - Challenge
+# 🚨 Don't change the code below 👇
+age = input("What is your current age?")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+age_new=int(age)
+years=90-age_new
+days=years*365
+weeks=years*52
+months=years*12
+print(f"You have {days}, {weeks} weeks, and {months} months left.")
+ans:What is your current age?56
+You have 12410, 1768 weeks and 408 months left.
+
+Project Tip Calculator
+#If the bill was $150.00, split between 5 people, with 12% tip. 
+
+#Each person should pay (150.00 / 5) * 1.12 = 33.6
+#Format the result to 2 decimal places = 33.60
+
+#Tip: There are 2 ways to round a number. You might have to do some Googling to solve this.💪
+
+#Write your code below this line 👇
+print("Welcome to the tip calculator.")
+total=float(input("What was the total bill? $"))
+tip=float(input("What percentage tip would you like to give? 10, 12, or 15? "))
+split=float(input("How many people to split the bill? "))
+pay=(round((total/split)*(1+tip/100),2))
+print(f"Each person should pay: ${pay}")
+
+ans:Welcome to the tip calculator.
+What was the total bill? $124.56
+What percentage tip would you like to give? 10, 12, or 15? 12
+How many people to split the bill? 7
+Each person should pay: $19.93

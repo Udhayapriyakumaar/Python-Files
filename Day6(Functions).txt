@@ -1,0 +1,44 @@
+Function:
+
+def my_function():
+#Do this
+#Then do this
+#Finally do this
+
+
+def my_function():
+  print("Hello")
+  print("Welcome")
+my_function()  
+
+output:
+Hello
+Welcome
+-----------------------
+hurdle game challenge.
+-------------------------
+Indentation
+ 
+moves 4 times when it is indended										
+
+
+-----------------------------------
+While loop: sorting some kind of functionality many many times.
+ something that is true.
+
+while something_is_true:	
+	#Do something repeatedly.
+----------------------------------------------------
+def movement():
+    move()
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+    move()
+    turn_left()
+    turn_left()
+    turn_left()
+    move()
+    turn_left()

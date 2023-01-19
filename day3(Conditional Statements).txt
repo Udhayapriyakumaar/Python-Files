@@ -1,0 +1,324 @@
+draw.io - best to draw diagrams and flowchart
+
+conditionals
+if and else
+if condition:
+  do this
+else:
+  do this
+
+example:
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+if height>120:
+  print("Can ride")
+else:
+  print("Can't ride")
+ans:Welcome to the rollercoaster!
+What is your height in cm? 120
+Can't ride
+---------------------------------------------------------------------
+Operators
+= - assingning the left value to the right
+== -checking the assigned value is correct
+>=
+<=
+----------------------------------------------------------------------------------------------
+Remainder:
+The **modulo** is written as a percentage sign (%) in Python. It gives you the remainder after a division. 
+e.g. 
+6 ÷ 2 = 3 with no remainder. 
+```
+6 % 2 = 0
+```
+5 ÷ 2 = 2 x **2** + 1, remainder is 1.
+```
+5 % 2 = 1
+-----------------------------------------------------------------
+Odd or Even Exercise:
+
+# 🚨 Don't change the code below 👇
+number = int(input("Which number do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+if number%2==0:
+  print("This is an even number.")
+else:
+  print("This is an odd number.")
+
+ans:Which number do you want to check? 99
+This is an odd number.
+------------------------------------------------------------------
+Nested if and elif statement:
+
+if condition1:
+ do this
+elif condition2:
+ do this
+else
+ do this
+---------------------------------------------
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+age=int(input("What is your age? "))
+if height>=120:
+  print("Can ride")
+  if age<12:
+    print("Pay $5")
+  elif age>=18:
+     print("Pay $12")
+  else:
+     print("Pay $7")
+else:
+  print("Can't ride")
+ans:Welcome to the rollercoaster!
+What is your height in cm? 120
+What is your age? 15
+Can ride
+Pay $7
+------------------------------------------------------------------
+BMI 2.0
+# 🚨 Don't change the code below 👇
+height = float(input("enter your height in m: "))
+weight = float(input("enter your weight in kg: "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+BMI=round(weight/(height)**2)
+if BMI<18.5:
+    print(f"Your BMI is {BMI}, you are underweight.")
+elif BMI<25:
+    print(f"Your BMI is {BMI}, you have a normal weight.") 
+elif BMI<30:
+    print(f"Your BMI is {BMI},you are slightly overweight. ")       
+elif BMI<35:
+    print(f"Your BMI is {BMI},you are obese.")    
+else:
+    print("you are clinically obese.")    
+
+Ans:
+enter your height in m: 1.8
+enter your weight in kg: 89
+Your BMI is 27,you are slightly overweight. 
+---------------------------------------------------------------------
+Leap Year
+# 🚨 Don't change the code below 👇
+year = int(input("Which year do you want to check? "))
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+if year%4==0:
+    print("Leap year.")
+elif year%100==0:
+    print("Not leap year.")
+elif year%400==0:
+    print("Leap year.")    
+else:
+    print("Not leap year.")    
+
+Ans:
+Which year do you want to check? 1999
+Not leap year.
+---------------------------------------------------------------------------
+if condition1:
+ do A
+elif condition2:
+ do B
+else
+ do C
+
+print("Welcome to the rollercoaster!")
+height = int(input("What is your height in cm? "))
+bill = 0
+if height>=120:
+  print("You can ride")
+  age=int(input("What is your age? "))
+  if age<12:
+    bill=5
+    print("Children tickets are $5")
+  elif age<=18:
+    bill=7
+    print("Youth tickets are $7")
+  else:
+    bill=12
+    print("Adults tickets are $12")
+  photo=input("Do you want a photo taken? Y or N.")
+  if photo=="Y":
+   bill += 3
+  print(f"Your final bill is $ {bill}")
+else:
+  print("You can't ride")
+
+Ans:Welcome to the rollercoaster!
+What is your height in cm? 120
+You can ride
+What is your age? 19
+Adults tickets are $12
+Do you want a photo taken? Y or N.Y
+Your final bill is $15
+--------------------------------------------------------------------
+Pizza Order Practise
+
+# 🚨 Don't change the code below 👇
+print("Welcome to Python Pizza Deliveries!")
+size = input("What size pizza do you want? S, M, or L ")
+add_pepperoni = input("Do you want pepperoni? Y or N ")
+extra_cheese = input("Do you want extra cheese? Y or N ")
+bill=0
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+if size =="S":
+    bill =15
+elif size=="M":
+    bill =20 
+else:
+    bill =25
+if add_pepperoni=="Y":
+    if size=="S":
+        bill+=2 
+    else:
+        bill+=3     
+if extra_cheese=="Y":
+        bill+=1
+print(f"Your final bill is ${bill}") 
+Ans:Welcome to Python Pizza Deliveries!
+What size pizza do you want? S, M, or L S
+Do you want pepperoni? Y or N  Y
+Do you want extra cheese? Y or N Y
+Your final bill is $18
+----------------------------------------------------------------------
+Logical Operator
+A and B
+C or D
+not E
+-----------------------------------------------------------------
+lower and upper function
+changes all the letters in a string to upper case.
+a="Udhaya".upper()
+print(a)
+Ans:UDHAYA
+changes all the letters in a string to lower case.
+a="Udhaya".lower()
+print(a)
+Ans:udhaya
+
+count function
+b="Angela".count("a")
+print(b)
+ans:1
+
+Angela contains 2 (a) letter but it shows 1.that's why we are using lower case
+--------------------------------------------------------------------------------
+Love Calculator
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
+
+#Write your code below this line 👇
+combine=name1+name2
+lower=combine.lower()
+t=lower.count("t")
+r=lower.count("r")
+u=lower.count("u")
+e=lower.count("e")
+true=t+r+u+e
+l=lower.count("l")
+v=lower.count("v")
+o=lower.count("o")
+e=lower.count("e")
+love=l+o+v+e
+Score=int(str(true)+str(love))
+if (Score<10) or (Score>90):
+    print(f"Your score is {Score}, you go together like coke and mentos.")
+elif (Score>=40) and (Score<=50):
+    print(f"Your score is {Score}, you are alright together.")  
+else:
+    print(f"Your score is {Score}.") 
+
+Ans: Welcome to the Love Calculator!
+What is your name?
+Kanye West
+What is their name?
+Kim Kardashian
+Your score is 42, you are alright together.
+------------------------------------------------------------------------------
+PROJECT: Treasure Island 
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
+#Write your code below this line 👇
+cross=input("You're at a cross road. Where do you want to go? Type 'left' or 'right\n")
+
+if cross=="left":
+  lake=input("You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across.\n ")  
+  if lake=="wait":
+    house=input("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?\n ")
+    if house=="yellow":
+      print("You found the treasure.You Win!")
+    elif house=="red":
+      print("Burned by fire.\nGame Over.")
+    else:
+      print("Eaten by beasts.\nGame Over.")
+  else:
+    print("Attacked by trout.\nGame Over.")
+else:
+  print("Fall into a hole.\nGame Over.")
+ 
+Ans:
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+Welcome to Treasure Island.
+Your mission is to find the treasure. 
+You're at a cross road. Where do you want to go? Type 'left' or 'right
+left
+You come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across.
+wait
+You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?
+yellow
+You found the treasure.You Win!

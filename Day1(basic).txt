@@ -1,0 +1,201 @@
+rinting the statement/console
+
+print("Hello")
+Ans:
+Hello
+
+()=what i wanted to print
+""/''=the input to print which is written in between "".
+      
+
+Strings 
+
+pearl necklace contains strings of beats.
+"hello" in necklace here the front " indicates the first and last " indicates the last character.
+
+day1 
+interactive coading exercises.
+1.Printing
+
+print("Day 1 - Python Print Function")
+print("The function is declared like this:")
+print("print('what to print')")
+
+Printing the multiple sentence by single code.
+
+\n indicates the next sentence should be in the next line
+
+example
+print("Hello\nHello\nHello")
+An:
+Hello
+Hello
+Hello
+
+we can CONCATENATE the strings.
+
+print("Hello"+"Udhaya")
+Ans:
+HelloUdhaya
+
+here there is no space between the hello and udhaya
+There are 3 ways to give space they are,
+
+1. add space after Hello string
+example:
+print("Hello "+"Udhaya")
+
+2. add space before Udhaya string starts
+example:
+print("Hello"+" Udhaya")
+
+3. add space in between the strings
+example:
+print("Hello"+" "+"Udhaya")
+
+
+these 3 ways gives the answer as 
+
+Hello Udhaya
+
+Errors:
+
+space - indentation error
+missing " -Syntax error
+
+code challenge-debugging the error
+
+print("Day 1 - String Manipulation")
+print('String Concatenation is done with the "+" sign.')
+print('e.g. print("Hello " + "world")')
+print("New lines can be created with a backslash and n.")
+
+Ans:
+Day 1 - String Manipulation
+String Concatenation is done with the "+" sign.
+e.g. print("Hello " + "world")
+New lines can be created with a backslash and n.
+
+INPUT Function
+
+code execution does not end it wait until for the user input
+
+example1:
+input("What is your name?")
+
+ans:
+What is your name?Udhaya
+
+example2:
+print("Hello "+input("What is your name?"))
+
+ans:
+What is your name?Udhaya
+Hello Udhaya
+
+# is used for single line comment
+""" comment """  for multiline comment
+
+INTERACTIVE CODING EXERCISE
+
+Write a program that prints the number of characters in a user's name. You might need to Google for a function that calculates the length of a string.
+
+print(len(input("What is your name?")))
+
+ans:
+What is your name?Udhaya
+6
+
+PYTHON VARIABLES
+
+variables are reference to the future view
+Phone book in mobile
+example : james=123456678
+the particular number associated with the name james
+
+example1:
+name=input("What is your name?")
+print(name)
+
+ans:
+What is your name?Udhaya
+Udhaya
+
+example2:
+name="Jack"
+print(name)
+name="Udhaya"
+print(name)
+
+ans:
+Jack
+Udhaya
+
+example3:
+name=input("What is your name?")
+length=len(name)
+print(length)
+
+ans:
+
+What is your name?Udhaya
+6
+
+
+INTERACTIVE CODING
+
+Write a program that switches the values stored in the variables a and b
+
+CODE:
+
+a=input("a: ")
+b=input("b: ")
+print("a: "+b)
+print("b: "+a)
+
+Ans:
+a: 3
+b: 5
+a: 5
+b: 3
+
+VARIABLE NAMING
+
+We cannot have space in variable
+instead we can have _
+
+example
+
+user_name
+
+We cannot start with number for variable
+
+12can = give syntax error
+
+declaring the variable and print, while printing if we written a wrong variable name then it is gives
+ Name Error
+
+Variable Quiz
+
+DAY1 BAND NAME GENERATOR
+
+print("Welcome to the Band Name Generator.")
+street = input("What's the name of the city you grew up in?\n")
+pet = input("What's your pet's name?\n")
+print("Your band name could be " + street + " " + pet)
+
+Ans:
+Welcome to the Band Name Generator.
+What's the name of the city you grew up in?
+INDIA
+What's your pet's name?
+BIJU
+Your band name could be INDIA BIJU 
+
+
+
+
+
+
+
+
