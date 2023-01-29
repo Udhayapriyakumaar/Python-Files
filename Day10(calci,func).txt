@@ -1,0 +1,169 @@
+Function
+
+def my_function():
+	#Do this
+	#Then do this
+	#Finally do this
+my_function()
+------------------------------
+Function with inputs
+
+def my_function(something):
+	#Do this with something
+	#Then do this
+	#Finally do this
+my_function(123)
+------------------------------
+Function with Output
+
+def my_function():
+	return 3*2
+output=my_function()
+----------------------------
+Title case
+
+eg:
+"the Lion is Roaming.".title()
+Ans:
+The Lion is roaming.
+-------------------------------
+First and Last name
+
+def format_name(first_name,last_name):
+  formated_first=first_name.title()
+  formated_last=last_name.title()
+  print(f"{formated_first} {formated_last}")
+format_name(input("Enter your first_name? "),input("Enter your last_name? "))
+
+Ans:
+Enter your first_name? UdHaYa
+Enter your last_name? PriYa
+Udhaya Priya
+------------------------------------------
+INTERACTIVE CHALLENGE
+
+def is_leap(year):
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        return True
+      else:
+        return False
+    else:
+      return True
+  else:
+    return False
+
+def days_in_month(year,month):
+    if month>12 or month<1:
+        return "Invalid month"
+    month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  
+    if is_leap(year) and month==2:
+      return 29
+    return month_days[month -1]   
+   
+#🚨 Do NOT change any of the code below 
+year = int(input("Enter a year: "))
+month = int(input("Enter a month: "))
+days = days_in_month(year, month)
+print(days)
+
+Ans:
+Enter a year: 2022
+Enter a month: 2
+28
+----------------------------------------------------------------------------
+CALCULATOR PROJECT
+art.py
+
+logo = """
+ _____________________
+|  _________________  |
+| | Pythonista   0. | |  .----------------.  .----------------.  .----------------.  .----------------. 
+| |_________________| | | .--------------. || .--------------. || .--------------. || .--------------. |
+|  ___ ___ ___   ___  | | |     ______   | || |      __      | || |   _____      | || |     ______   | |
+| | 7 | 8 | 9 | | + | | | |   .' ___  |  | || |     /  \     | || |  |_   _|     | || |   .' ___  |  | |
+| |___|___|___| |___| | | |  / .'   \_|  | || |    / /\ \    | || |    | |       | || |  / .'   \_|  | |
+| | 4 | 5 | 6 | | - | | | |  | |         | || |   / ____ \   | || |    | |   _   | || |  | |         | |
+| |___|___|___| |___| | | |  \ `.___.'\  | || | _/ /    \ \_ | || |   _| |__/ |  | || |  \ `.___.'\  | |
+| | 1 | 2 | 3 | | x | | | |   `._____.'  | || ||____|  |____|| || |  |________|  | || |   `._____.'  | |
+| |___|___|___| |___| | | |              | || |              | || |              | || |              | |
+| | . | 0 | = | | / | | | '--------------' || '--------------' || '--------------' || '--------------' |
+| |___|___|___| |___| |  '----------------'  '----------------'  '----------------'  '----------------' 
+|_____________________|
+"""
+
+main.py
+
+from art import logo
+from replit import clear
+
+def add(n1,n2):
+  return n1+n2
+def subtract(n1,n2):
+  return n1-n2
+def multiply(n1,n2):
+  return n1*n2
+def divide(n1,n2):
+  return n1/n2
+operations={
+  "+":add,
+  "-":subtract,
+  "*":multiply,
+  "/":divide
+}  
+def calculator():
+  print(logo)
+  num1=float(input("What's the first number: "))
+  for symbol in operations:
+    print(symbol)
+    should_continue=True
+  while should_continue:
+    operation_symbol=input("Pick an operation: ")
+    num2=float(input("What's the next number?: "))
+    calculation_function=operations[operation_symbol]
+    answer=calculation_function(num1,num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+  
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ")=="y":
+     num1=answer
+    else:
+     should_continue=False
+     clear()
+     calculator() 
+calculator()     
+    
+  
+Ans:
+
+ _____________________
+|  _________________  |
+| | Pythonista   0. | |  .----------------.  .----------------.  .----------------.  .----------------. 
+| |_________________| | | .--------------. || .--------------. || .--------------. || .--------------. |
+|  ___ ___ ___   ___  | | |     ______   | || |      __      | || |   _____      | || |     ______   | |
+| | 7 | 8 | 9 | | + | | | |   .' ___  |  | || |     /  \     | || |  |_   _|     | || |   .' ___  |  | |
+| |___|___|___| |___| | | |  / .'   \_|  | || |    / /\ \    | || |    | |       | || |  / .'   \_|  | |
+| | 4 | 5 | 6 | | - | | | |  | |         | || |   / ____ \   | || |    | |   _   | || |  | |         | |
+| |___|___|___| |___| | | |  \ `.___.'\  | || | _/ /    \ \_ | || |   _| |__/ |  | || |  \ `.___.'\  | |
+| | 1 | 2 | 3 | | x | | | |   `._____.'  | || ||____|  |____|| || |  |________|  | || |   `._____.'  | |
+| |___|___|___| |___| | | |              | || |              | || |              | || |              | |
+| | . | 0 | = | | / | | | '--------------' || '--------------' || '--------------' || '--------------' |
+| |___|___|___| |___| |  '----------------'  '----------------'  '----------------'  '----------------' 
+|_____________________|
+
+
+What's the first number: 2
++
+-
+*
+/
+Pick an operation: +
+What's the next number?: 5
+2.0+5.0=7.0
+Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: n
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
