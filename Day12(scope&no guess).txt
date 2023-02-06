@@ -1,0 +1,244 @@
+Local scope:
+
+It can be acccessed only inside the function
+
+example:
+
+def drink_potion():
+	potion_strength=2
+	print(potion_strength)
+drink_potion()
+
+Ans:
+2
+-------------------------------
+if the code is like this!
+
+def drink_potion():
+	potion_strength=2
+	print(potion_strength)
+drink_potion()
+print(potion_strength)
+
+Ans:
+2
+NameError
+-------------------------------------
+Global Scope:
+
+#This is global scope where player_health=10
+
+player_health=10
+
+def drink_potion():
+
+#This is local scope where potion_strength=2
+	potion_strength=2
+	print(player_health)
+drink_potion()
+
+Ans:
+10
+---------------------------------------------
+Be carefull in coding the nested function
+----------------------------------------------
+
+Python does not have block scope
+
+example:
+
+game_level=3
+enemies=["Skeleton","Zombie","Alien"]
+if game_level<5:
+	new_enemy=enemy[0]
+print(new_enemy)
+
+Ans:
+Skeleton
+
+---------------------------------------
+
+Mostly don't try to modify the global scope
+
+Example:
+enemies=1
+def increase_enemies():
+	print(f"enemies inside function: {enemies}")
+	return enemies+1
+enemies=increase_enemies()
+print(f"enemies outside function: {enemies}")
+
+Ans:
+enemies inside function: 1
+enemies inside function: 2
+----------------------------------------------------
+QUIZ
+
+1.
+def a_function(a_parameter):
+    a_variable = 15
+    return a_parameter
+ 
+a_function(10)
+print(a_variable)
+
+Ans:
+NameError
+
+2.i = 50
+def foo():
+    i = 100
+    return i
+ 
+foo()
+print(i)
+
+Ans:
+50
+
+3.def bar():
+    my_variable = 9
+ 
+    if 16 > 9:
+      my_variable = 16
+ 
+    print(my_variable)
+ 
+bar()
+
+Ans:
+16
+--------------------------------------------------
+PROJECT: THE NUMBER GUESSING GAME
+
+art.py
+
+logo="""
+
+                                          __  .__                                  ___.                  
+   ____  __ __   ____   ______ ______   _/  |_|  |__   ____      ____  __ __  _____\_ |__   ___________  
+  / ___\|  |  \_/ __ \ /  ___//  ___/   \   __\  |  \_/ __ \    /    \|  |  \/     \| __ \_/ __ \_  __ \ 
+ / /_/  >  |  /\  ___/ \___ \ \___ \     |  | |   Y  \  ___/   |   |  \  |  /  Y Y  \ \_\ \  ___/|  | \/ 
+ \___  /|____/  \___  >____  >____  >    |__| |___|  /\___  >  |___|  /____/|__|_|  /___  /\___  >__|    
+/_____/             \/     \/     \/               \/     \/        \/            \/    \/     \/        
+"""
+
+------------------------------------------------
+main.py
+
+#Number Guessing Game Objectives:
+
+# Include an ASCII art logo.
+
+# Allow the player to submit a guess for a number between 1 and 100.
+# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+# If they got the answer correct, show the actual answer to the player.
+# Track the number of turns remaining.
+# If they run out of turns, provide feedback to the player. 
+# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
+from art import logo
+from random import randint
+
+
+easy_level_turns=10
+hard_level_turns=5
+
+def check_answer(guess,answer,turns):
+  if guess>answer:
+    print("Too high.")
+    return turns-1
+  elif guess<answer:
+    print("Too low.")
+    return turns-1
+  else:
+    print(f"You got it! The answer was {answer}")
+
+def set_difficulty():
+  
+  level=input("Choose difficulty.Type 'easy'or'hard': ")
+  if level=="easy":
+    return easy_level_turns
+  else:
+    return hard_level_turns
+
+def game():
+  print(logo)
+  print("Welcome to the Number Guesssing Game!")
+  print("I'm thinking of a number between 1 and 100")
+  answer=randint(1,100)
+  turns=set_difficulty()
+  guess =0
+  while guess!=answer:
+    print(f"You have {turns} attempts remaining to guess the number.")
+    guess=int(input("Make a guess: "))
+    turns=check_answer(guess,answer,turns)
+    if turns==0:
+      print("You've run out of guesses, you lose.")
+    elif guess!=answer:
+      print("Guess again")
+game()      
+	
+OUTPUT:
+
+
+                                          __  .__                                  ___.                  
+   ____  __ __   ____   ______ ______   _/  |_|  |__   ____      ____  __ __  _____\_ |__   ___________  
+  / ___\|  |  \_/ __ \ /  ___//  ___/   \   __\  |  \_/ __ \    /    \|  |  \/     \| __ \_/ __ \_  __ \ 
+ / /_/  >  |  /\  ___/ \___ \ \___ \     |  | |   Y  \  ___/   |   |  \  |  /  Y Y  \ \_\ \  ___/|  | \/ 
+ \___  /|____/  \___  >____  >____  >    |__| |___|  /\___  >  |___|  /____/|__|_|  /___  /\___  >__|    
+/_____/             \/     \/     \/               \/     \/        \/            \/    \/     \/        
+
+
+Welcome to the Number Guesssing Game! I'm thinking of a number between 1 and 100
+
+Choose difficulty. Type "^ prime eas y^ prime or^ prime hard^ prime : easy You have 10 attempts remaining to guess the number.
+
+Make a guess: 20 Make a guess: 90
+
+Too low.
+
+Guess again
+
+You have 9 attempts remaining to guess the number.
+
+Make a guess: 50
+
+Too low.
+
+Guess again
+
+You have 8 attempts remaining to guess the number.
+
+Make a guess: 70
+
+Too low.
+
+Guess again
+
+You have 7 attempts remaining to guess the number.
+
+Too high. Guess again
+
+You have 6 attempts remaining to guess the number. Make a guess: 77
+
+Too high.
+
+You have 5 attempts remaining to guess the number.
+
+Guess again
+
+Make a guess: 74
+
+Too low.
+
+Guess again
+
+Make a guess: 75
+
+You have 4 attempts remaining to guess the number.
+
+Too low. Guess again
+
+You have 3 attempts remaining to guess the number.
+
+Make a guess: 76 You got it! The answer was 76

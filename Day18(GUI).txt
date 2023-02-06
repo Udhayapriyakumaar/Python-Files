@@ -1,0 +1,246 @@
+Turtle documentation
+
+tkinter package(Tcl/Tk) interface used for Graphical User Interface
+
+turtle making square
+
+from turtle import Turtle, Screen
+
+nimbu = Turtle()
+nimbu.shape("turtle")
+nimbu.color("red", "cyan")
+for _ in range(4):
+    nimbu.forward(100)
+    nimbu.right(90)
+
+my_screen = Screen()
+print(my_screen.canvheight)
+my_screen.exitonclick()
+---------------------------------
+How to import all the things in module turtle
+
+Syntax:
+
+from turtle import *
+---------------------------------
+aliasing modules
+
+Syntax:
+
+import turtle as t
+tim=t.Turtle()
+
+-------------------------------------
+installing packages for importing
+------------------------------------
+dashed line
+
+for _ in range(15):
+    nimbu.forward(10)
+    nimbu.pu()
+    nimbu.forward(10)
+    nimbu.pd()
+
+
+-----------------------------------
+Drawing triangle(3),square(4),.......(10) with random color
+
+from turtle import Turtle, Screen
+import random
+nimbu = Turtle()
+nimbu.shape("turtle")
+nimbu.color("red", "cyan")
+
+
+colours=["dark green","red","blue","yellow","orange","black"]
+def draw_shape(no_sides):
+    angle = 360 / no_sides
+    for _ in range(no_sides):
+        nimbu.forward(100)
+        nimbu.right(angle)
+for shape_side in range(3,11):
+    nimbu.color(random.choice(colours))
+    draw_shape(shape_side)
+
+
+my_screen = Screen()
+print(my_screen.canvheight)
+my_screen.exitonclick()
+-----------------------------------------
+trinket color is usedd for selecting color for turtle
+-----------------------------------------------------------
+turle random walk
+
+
+from turtle import Turtle
+import random
+nimbu = Turtle()
+nimbu.shape("turtle")
+nimbu.color("red", "cyan")
+
+
+
+
+colours = ["dark green", "red"]
+directions=[0, 90, 180, 270]
+nimbu.pensize(15)
+nimbu.speed("slow")
+for _ in range(50):
+    nimbu.color(random.choice(colours))
+    nimbu.forward(100)
+    nimbu.setheading(random.choice(directions))
+
+
+--------------------------------------------------
+python tuples = (1, 3, 8)
+
+python list=[1, 2, 3]
+
+What is the difference between tuples and list:
+
+here in tuples we cannot change the values
+
+my_tuple=(1, 3, 8)
+my_tuple[2]=12
+
+OUTPUT:
+TypeError
+----------------------------------------------------
+turtle with random color between rgb
+
+import turtle as n
+import random
+nimbu = n.Turtle()
+n.colormode(255)
+
+nimbu.shape("turtle")
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
+
+
+directions = [0, 90, 180, 270]
+nimbu.pensize(15)
+nimbu.speed("slow")
+for _ in range(15):
+    nimbu.color(random_color())
+    nimbu.forward(100)
+    nimbu.setheading(random.choice(directions))
+
+
+
+-----------------------------------------------------
+Make a spirograph(many circle forms circle)
+
+import turtle as n
+import random
+nimbu = n.Turtle()
+n.colormode(255)
+
+nimbu.shape("turtle")
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
+
+
+
+nimbu.pensize(10)
+nimbu.speed("fastest")
+for _ in range(35):
+    nimbu.color(random_color())
+    nimbu.circle(100)
+    current_heading = nimbu.heading()
+    nimbu.setheading(current_heading + 10)
+    nimbu.circle(100)
+
+screen=n.Screen()
+screen.exitonclick()
+
+-------------------------------------------------------------
+
+ Same spirograph with radius 5
+
+import turtle as n
+import random
+nimbu = n.Turtle()
+n.colormode(255)
+
+nimbu.shape("turtle")
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
+
+
+
+nimbu.pensize(3)
+nimbu.speed("fastest")
+def spirograph(size_gap):
+    for _ in range(int(360/size_gap)):
+        nimbu.color(random_color())
+        nimbu.circle(100)
+        nimbu.setheading(nimbu.heading() + size_gap)
+
+spirograph(5)
+screen=n.Screen()
+screen.exitonclick()
+
+----------------------------------------------------------
+
+HIRST PAINTING:
+
+import turtle as t
+import colorgram
+import random
+rgb_colors=[]
+colors=colorgram.extract('image.jpeg',30)
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color=(r, g, b)
+    rgb_colors.append(new_color)
+print(rgb_colors)
+
+t.colormode(255)
+nimbu=t.Turtle()
+nimbu.shape("turtle")
+nimbu.color("red","green")
+nimbu.speed("fastest")
+nimbu.hideturtle()
+nimbu.penup()
+color_list=[(239, 238, 235), (234, 237, 242), (231, 240, 235), (245, 235, 240), (46, 101, 164), (219, 158, 97), (228, 207, 120), (181, 50, 77), (214, 66, 88), (223, 125, 149), (119, 91, 47), (128, 166, 202), (107, 108, 186), (56, 171, 108), (120, 184, 149), (185, 19, 40), (128, 170, 41), (155, 218, 184), (28, 140, 101), (226, 72, 50), (183, 172, 225), (27, 44, 84), (29, 56, 112), (232, 168, 180), (72, 27, 33), (36, 170, 182), (228, 173, 166), (83, 83, 33), (67, 36, 30), (141, 206, 225)]
+
+
+nimbu.setheading(225)
+nimbu.fd(300)
+nimbu.setheading(0)
+no_of_dots=101
+
+for dot_count in range(1,no_of_dots):
+
+    nimbu.dot(20,random.choice(color_list))
+    nimbu.fd(50)
+    if dot_count%10==0:
+        nimbu.setheading(90)
+        nimbu.fd(50)
+        nimbu.setheading(180)
+        nimbu.fd(500)
+    nimbu.setheading(0)
+
+
+------------------------------------------------------------------------

@@ -1,0 +1,254 @@
+Creating Classes
+
+Creating own classes
+
+Syntax:
+
+class classname:
+--------------------
+pass keyword is used to make the function or class empty.
+
+def function():
+	pass
+(or)
+
+class User:
+	pass
+-----------------------------------------------
+nameing the class 
+
+like nameing the class with starting capital letter
+
+example:
+class GameStart:
+
+This type nameing PascalCase
+
+if the firstname is small letter and the subsequent name start with capital 
+like 
+class gameStart:
+
+This type is known as camelCase
+
+if all the name start with starting as small 
+like
+class game_start:
+
+This type is known as snake_case
+---------------------------------------------------
+CONSTRUCTER
+
+which is part of blueprint that allows us to specifies what should happen when object is created
+
+example
+
+class Car:
+	def __init__(self):
+	#initialise attributes
+
+-----------------------------------------
+how to initialise attribute in constructor
+
+example:
+class Car:
+	def __init__(self,seats):
+		self.seats=seats
+---------------------------------------------
+class User:
+    def __init__(self, user_id,username):
+        self.id=user_id
+        self.username=username
+
+user_1=User("001","angela")
+user_2=User("002","Udhaya")
+print(user_1.id)
+print(user_2.id)
+
+OUTPUT:
+001
+002
+-----------------------------------------------------
+Adding methods to class
+
+Syntax:
+example
+
+class Car:
+	def enter_race_mode():
+		self.seats=2
+
+---------------------------------------
+class User:
+    def __init__(self, user_id,username):
+        self.id=user_id
+        self.username=username
+
+user_1=User("001","angela")
+user_2=User("002","Udhaya")
+print(user_1.id)
+print(user_2.id)
+
+OUTPUT:
+0
+1
+1
+0
+---------------------------------------------
+
+QUIZ GAME
+
+main.py
+
+from question_model import Question
+from data import question_data
+from quiz_brain import QuizBrain
+question_bank = []
+for question in question_data:
+    question_text = question["text"]
+    question_answer = question["answer"]
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
+
+quiz = QuizBrain(question_bank)
+while quiz.still_has_questions():
+    quiz.next_question()
+
+print(f"You've completed the quiz")
+print(f"Your final score was:{quiz.score}/{quiz.question_number}")
+-----------------------------------------------------------
+data.py
+
+from question_model import Question
+from data import question_data
+from quiz_brain import QuizBrain
+question_bank = []
+for question in question_data:
+    question_text = question["text"]
+    question_answer = question["answer"]
+    new_question = Question(question_text, question_answer)
+    question_bank.append(new_question)
+
+quiz = QuizBrain(question_bank)
+while quiz.still_has_questions():
+    quiz.next_question()
+
+print(f"You've completed the quiz")
+print(f"Your final score was:{quiz.score}/{quiz.question_number}")
+--------------------------------------------------------------------
+question_model.py
+
+class Question:
+    def __init__(self, q_text, q_answer):
+        self.text = q_text
+        self.answer = q_answer
+
+-------------------------------------------------
+quiz_brain.py
+
+class QuizBrain:
+    def __init__(self, q_list):
+        self.question_number = 0
+        self.question_list = q_list
+        self.score = 0
+
+    def still_has_questions(self):
+        return self.question_number < len(self.question_list)
+
+    def next_question(self):
+        current_question = self.question_list[self.question_number]
+        self.question_number += 1
+        user_answer = input(f"Q.{self.question_number}: {current_question.text} (True/False):")
+        self.check_answer(user_answer, current_question.answer)
+
+    def check_answer(self, user_answer, correct_answer):
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
+            print("You got it right!")
+        else:
+            print("That's wrong.")
+        print(f"The correct answer was: {correct_answer}.")
+        print(f"Your current score is: {self.score}/{self.question_number} ")
+        print("\n")
+---------------------------------------------------------------------------------------------------
+
+OUTPUT:
+
+C:\Users\Admin\miniconda3\python.exe C:\Users\Admin\Downloads\quiz-game-start\main.py 
+Q.1: A slug's blood is green. (True/False):True
+You got it right!
+The correct answer was: True.
+Your current score is: 1/1 
+
+
+Q.2: The loudest animal is the African Elephant. (True/False):False
+You got it right!
+The correct answer was: False.
+Your current score is: 2/2 
+
+
+Q.3: Approximately one quarter of human bones are in the feet. (True/False):TRue
+You got it right!
+The correct answer was: True.
+Your current score is: 3/3 
+
+
+Q.4: The total surface area of a human lungs is the size of a football pitch. (True/False):True
+You got it right!
+The correct answer was: True.
+Your current score is: 4/4 
+
+
+Q.5: In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat. (True/False):True
+You got it right!
+The correct answer was: True.
+Your current score is: 5/5 
+
+
+Q.6: In London, UK, if you happen to die in the House of Parliament, you are entitled to a state funeral. (True/False):False
+You got it right!
+The correct answer was: False.
+Your current score is: 6/6 
+
+
+Q.7: It is illegal to pee in the Ocean in Portugal. (True/False):True
+You got it right!
+The correct answer was: True.
+Your current score is: 7/7 
+
+
+Q.8: You can lead a cow down stairs but not up stairs. (True/False):False
+You got it right!
+The correct answer was: False.
+Your current score is: 8/8 
+
+
+Q.9: Google was originally called 'Backrub'. (True/False):True
+You got it right!
+The correct answer was: True.
+Your current score is: 9/9 
+
+
+Q.10: Buzz Aldrin's mother's maiden name was 'Moon'. (True/False):False
+That's wrong.
+The correct answer was: True.
+Your current score is: 9/10 
+
+
+Q.11: No piece of square dry paper can be folded in half more than 7 times. (True/False):True
+That's wrong.
+The correct answer was: False.
+Your current score is: 9/11 
+
+
+Q.12: A few ounces of chocolate can to kill a small dog. (True/False):TRue
+You got it right!
+The correct answer was: True.
+Your current score is: 10/12 
+
+
+You've completed the quiz
+Your final score was:10/12
+
+Process finished with exit code 0
+
+
