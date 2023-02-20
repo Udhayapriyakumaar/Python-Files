@@ -1,0 +1,170 @@
+Reading the file:
+
+First create a text file as my_file.txt
+with contents as 
+Hello, My name is Udhayapriya.
+
+Code:
+with open("my_file.txt") as file:
+    contents=file.read()
+    print(contents)
+
+OUTPUT:
+Hello, My name is Udhayapriya.
+
+==> Every time we need to close the file because while openiing the file it starts using some resources to close we use 
+
+file.close()
+ 
+===>When we use with keyword it will directly take u to the file so noo need to use close function.
+
+-----------------------------------------------------------
+WRITING THE FILE
+
+with open("my_file.txt", mode="w") as file:
+    file.write("New text.")
+
+OUTPUT
+my_file.txt
+New text.
+
+### Here I need the previous file with the new added content means
+===>Here "a" means append and "w" means write
+
+with open("my_file.txt", mode="a") as file:
+    file.write("\nNew text.")
+
+OUTPUT:
+my_file.txt
+Hello, My name is Udhayapriya.
+
+New text.
+----------------------------------------------------
+Creating new file with contents
+
+with open("new_file.txt", mode="w") as file:
+    file.write("New text.")
+
+OUTPUT:
+new_file.txt
+New text.
+----------------------------------------------------
+RELATIVE AND ABSOLUTE FILE PATHS
+
+Root folder is C Drive it is represented as /
+
+ABSOLUTE FILE PATH
+
+#Here work is parent folder and it has report.doc
+#Below that we have Project folder it has talk.ppt
+
+starts with root i.e
+
+/
+/Work
+/Work/report.doc
+/Work/Project
+/Work/Project/talk.ppt
+
+We need to write some file in the folder
+so here in Project folder i need to write thee file 
+---> This is known as WORKING DIRECTORY
+-------------------------------------------------------------------
+RELATIVE FILE PATH
+
+it is the reverse like i need to work in talk.ppt
+./talk.ppt
+
+I need to work in Project folder
+./Project/talk.ppt
+
+I need to work in report.doc
+../report.doc
+
+---------------------------------
+If we have Work folder consists of 2 files namely report.doc and maon.py
+
+I need to hold main.py and get access to  report.doc means
+
+./report.doc
+--------------------------------------------------------
+Main difference between absolute and relative is
+
+Absolute is always relative to root(C drive)
+
+Relative path is relative to the current directory
+
+-----------------------------------------------------
+Mail Merging Challenge
+
+Sending multiple letters to persons
+
+We have two folders Input and Output
+
+==>Input Folder as 2 sub Folders like Letters and Names
+   ---->Letters folder has starting_letter.txt
+   ---->Names folder has invited_names.txt
+==>Output Folder as folder like ReadyToSend and main.py file
+   ---->ReadyToSend folder as one example.txt file
+
+starting_letter.txt
+
+Dear [name],
+
+You are invited to my birthday this Saturday.
+
+Hope you can make it!
+
+Angela
+-----------------------------------------------------------
+invited_names.txt
+
+Dear [name],
+
+You are invited to my birthday this Saturday.
+
+Hope you can make it!
+
+Angela
+--------------------------------------------------------------
+example.txt 
+
+Dear Aang,
+
+You are invited to my birthday this Saturday.
+
+Hope you can make it!
+
+Angela
+
+-------------------------------------------------------------
+main.py
+PLACEHOLDER = "[name]"
+
+
+with open("./Input/Names/invited_names.txt") as name_f:
+    names = name_f.readlines()
+
+with open("./Input/Letters/starting_letter.txt") as letter:
+    letters = letter.read()
+    for name in names:
+        strip_name=name.strip()
+        new_letter=letters.replace(PLACEHOLDER, strip_name)
+        with open(f"./Output/ReadyToSend/letter_for_{strip_name}.txt",mode="w") as completed:
+            completed.write(new_letter)
+
+-------------------------------------------------------------------
+
+OUTPUT:
+
+after executing multiple letters will be created in ReadyToSend folder for each person
+like
+letter_for_Aang.txt ==>It contains contents
+
+Dear Aang,
+
+You are invited to my birthday this Saturday.
+
+Hope you can make it!
+
+Angela

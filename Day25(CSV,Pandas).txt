@@ -1,0 +1,271 @@
+Pandas is one of the most popular Data Analysis library 
+
+CSV==>Comma Separated Value
+
+It is a very common way of representing tabular data(data containing tables like spread sheets)
+
+We have inbuilt package known as csv
+
+main.py
+
+import csv
+
+with open("weather_data.csv") as data:
+    datas= csv.reader(data)
+    for row in datas:
+        print(row)
+
+OUTPUT:
+
+['day', 'temp', 'condition']
+['Monday', '12', 'Sunny']
+['Tuesday', '14', 'Rain']
+['Wednesday', '15', 'Rain']
+['Thursday', '14', 'Cloudy']
+['Friday', '21', 'Sunny']
+['Saturday', '22', 'Sunny']
+['Sunday', '24', 'Sunny']
+
+-----------------------------------------------------
+import csv
+
+with open("weather_data.csv") as data:
+    datas= csv.reader(data)
+    temperatures=[]
+    for row in datas:
+        if row[1] != "temp":
+            temperatures.append(row[1])
+    print(temperatures)
+
+OUTPUT:
+
+['12', '14', '15', '14', '21', '22', '24']
+-----------------------------------------------------------
+
+Using pandas library
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+print(d)
+
+OUTPUT:
+
+ day  temp condition
+0     Monday    12     Sunny
+1    Tuesday    14      Rain
+2  Wednesday    15      Rain
+3   Thursday    14    Cloudy
+4     Friday    21     Sunny
+5   Saturday    22     Sunny
+6     Sunday    24     Sunny
+------------------------------------------------
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+print(d["temp"])
+
+OUTPUT:
+
+0    12
+1    14
+2    15
+3    14
+4    21
+5    22
+6    24
+Name: temp, dtype: int64
+------------------------------------------------
+
+2 Primary data structures of pandas as Series(1 dimentional) 
+and DataFrame(2 dimentional)
+
+
+Series is equivalent to list
+
+Converting the information into dictionary using pandas
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+dict=d.to_dict()
+print(dict)
+
+OUTPUT:
+
+{'day': {0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 4: 'Friday', 5: 'Saturday', 6: 'Sunday'}, 'temp': {0: 12, 1: 14, 2: 15, 3: 14, 4: 21, 5: 22, 6: 24}, 'condition': {0: 'Sunny', 1: 'Rain', 2: 'Rain', 3: 'Cloudy', 4: 'Sunny', 5: 'Sunny', 6: 'Sunny'}}
+
+----------------------------------------------------------
+import pandas
+d=pandas.read_csv("weather_data.csv")
+d_list=d["temp"].to_list()
+print(d_list)
+
+OUTPUT:
+
+[12, 14, 15, 14, 21, 22, 24]
+---------------------------------------------
+Average of temp
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+avg=d["temp"].mean()
+print(avg)
+
+OUTPUT:
+
+17.428571428571427
+-------------------------------------------
+MAX of temp
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+max=d["temp"].max()
+print(max)
+
+OUTPUT:
+24
+----------------------------------------
+We can use two ways to print the column values like
+
+print(d["condition"])
+print(d.condition)
+-------------------------------------------
+To get Full row of Day Monday
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+print(d[d.day=="Monday"])
+
+OUTPUT:
+
+      day  temp condition
+0  Monday    12     Sunny
+-------------------------------------
+Max temp with full info
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+print(d[d.temp==d.temp.max()])
+
+OUTPUT:
+      day  temp condition
+6  Sunday    24     Sunny
+---------------------------------------
+Get the condition of monday
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+monday=d[d.day=="Monday"]
+print(monday.condition)
+
+OUTPUT:
+0    Sunny
+Name: condition, dtype: object
+------------------------------
+Converting celcius into fahrenheit of monday temp
+
+import pandas
+d=pandas.read_csv("weather_data.csv")
+monday=d[d.day=="Monday"]
+mon_temp=int(monday.temp)
+mon_fahrenheit=monday.temp*1.8+32
+print(mon_fahrenheit)
+
+OUTPUT:
+
+0    53.6
+Name: temp, dtype: float64
+-------------------------------------------------
+Creating DataFrame from Dictionary
+
+import pandas
+d_dict={
+    "students":["Amy", "Udhaya", "Nimbu"],
+    "scores":[80, 100, 95]
+}
+data=pandas.DataFrame(d_dict)
+print(data)
+
+OUTPUT:
+
+  students  scores
+0      Amy      80
+1   Udhaya     100
+2    Nimbu      95
+----------------------------------------------
+Creating csv file using above dataframe
+
+import pandas
+d_dict={
+    "students":["Amy", "Udhaya", "Nimbu"],
+    "scores":[80, 100, 95]
+}
+data=pandas.DataFrame(d_dict)
+data.to_csv("new_data.csv")
+
+OUTPUT:
+new csv file i.e) new_data.csv will be created
+------------------------------------------------------
+
+Finding x and y coordinates of the image
+
+def get_mouse_click_coor(x,y):
+    print(x, y)
+
+turtle.onscreenclick(get_mouse_click_coor)
+turtle.mainloop()
+
+OUTPUT:
+
+-32.0 7.0
+-95.0 13.0
+----------------------------
+
+Creating Guess the states Game
+
+load the blank_states_img.gif,50_states.csv
+---------------
+main.py
+
+import turtle
+import pandas
+
+screen=turtle.Screen()
+screen.title("U.S. States Game")
+image="blank_states_img.gif"
+screen.addshape(image)
+
+turtle.shape(image)
+data=pandas.read_csv("50_states.csv")
+all_states=data.state.to_list()
+guessed_states=[]
+
+while len(guessed_states)<50:
+    answer_state=screen.textinput(title=f"{len(guessed_states)}/50 Guess the State", prompt="What's another state's name?").title()
+
+    if answer_state =="Exit":
+        missing_states=[]
+        for state in all_states:
+            if state not in guessed_states:
+                missing_states.append(state)
+        new_data=pandas.DataFrame(missing_states)
+        new_data.to_csv("states_to_learn.csv")
+    if answer_state in all_states:
+        guessed_states.append(answer_state)
+        t=turtle.Turtle()
+        t.hideturtle()
+        t.penup()
+        state_data=data[data.state==answer_state]
+        t.goto(int(state_data.x), int(state_data.y))
+        t.write(answer_state)
+
+OUTPUT:
+
+
+states_to_learn.csv will be created and it will show the remaining states to be find.
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
